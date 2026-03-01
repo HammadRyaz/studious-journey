@@ -1,0 +1,100 @@
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class GameBoard {
+    private String[][] cells;
+    private int[][] winningLine;
+
+    public GameBoard() {
+        cells = new String[3][3];
+        reset();
+    }
+
+    public void reset() {
+        winningLine = null;
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                cells[row][col] = "";
+            }
+        }
+    }
+
+    public boolean setCell(int row, int col, String symbol) {
+        if (!cells[row][col].isEmpty()) {
+            return false;
+        }
+        cells[row][col] = symbol;
+        return true;
+    }
+
+    public void clearCell(int row, int col) {
+        cells[row][col] = "";
+    }
+
+    public String getCell(int row, int col) {
+        return cells[row][col];
+    }
+
+    public boolean isFull() {
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                if (cells[row][col].isEmpty()) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public String checkWinner() {
+        // Horizontal lines
+        for (int row = 0; row < 3; row++) {
+            if (!cells[row][0].isEmpty() && cells[row][0].equals(cells[row][1])
+                    && cells[row][1].equals(cells[row][2])) {
+                winningLine = new int[][] { { row, 0 }, { row, 1 }, { row, 2 } };
+                return cells[row][0];
+            }
+        }
+
+        // Vertical lines
+        for (int col = 0; col < 3; col++) {
+            if (!cells[0][col].isEmpty() && cells[0][col].equals(cells[1][col])
+                    && cells[1][col].equals(cells[2][col])) {
+                winningLine = new int[][] { { 0, col }, { 1, col }, { 2, col } };
+                return cells[0][col];
+            }
+        }
+
+        // Diagonal from top-left to bottom-right
+        if (!cells[0][0].isEmpty() && cells[0][0].equals(cells[1][1]) && cells[1][1].equals(cells[2][2])) {
+            winningLine = new int[][] { { 0, 0 }, { 1, 1 }, { 2, 2 } };
+            return cells[0][0];
+        }
+
+        // Diagonal from top-right to bottom-left
+        if (!cells[0][2].isEmpty() && cells[0][2].equals(cells[1][1]) && cells[1][1].equals(cells[2][0])) {
+            winningLine = new int[][] { { 0, 2 }, { 1, 1 }, { 2, 0 } };
+            return cells[0][2];
+        }
+
+        winningLine = null;
+        return "";
+    }
+
+    public int[][] getWinningLine() {
+        return winningLine;
+    }
+
+    public List<int[]> getEmptyCells() {
+        List<int[]> list = new ArrayList<>();
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                if (cells[row][col].isEmpty()) {
+                    list.add(new int[] { row, col });
+                }
+            }
+        }
+        return list;
+    }
+}

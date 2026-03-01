@@ -1,0 +1,279 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class TicTacToe implements Playable {
+    private JFrame frame;
+    private JLabel statusLabel;
+    private JLabel playerXLabel;
+    private JLabel playerOLabel;
+    private JPanel boardPanel;
+    private JButton[][] boardButtons;
+    private GameBoard board;
+    private Player playerX;
+    private Player playerO;
+    private Player currentPlayer;
+    private boolean gameOver;
+    private boolean aiMode;
+    private final String historyFile = "game_history.txt";
+
+    public void startGame() {
+        frame = new JFrame("Tic Tac Toe");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(420, 410);
+        frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
+        showWelcomeScreen();
+        frame.setVisible(true);
+    }
+
+    private void showWelcomeScreen() {
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(9, 1, 4, 4));
+        panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        JLabel title = new JLabel("Welcome to Tic Tac Toe", JLabel.CENTER);
+        title.setFont(new Font("Arial", Font.BOLD, 18));
+
+        JTextField xNameField = new JTextField("Player X");
+        JTextField oNameField = new JTextField("Player O");
+
+        JCheckBox aiCheck = new JCheckBox("Play with AI");
+        JComboBox<String> difficultyBox = new JComboBox<>(new String[] { "Easy", "Medium", "Hard" });
+        difficultyBox.setEnabled(false);
+
+        aiCheck.addActionListener(e -> {
+            boolean aiSelected = aiCheck.isSelected();
+            oNameField.setText(aiSelected ? "Computer" : "Player O");
+            oNameField.setEnabled(!aiSelected);
+            difficultyBox.setEnabled(aiSelected);
+        });
+
+        JButton startButton = new JButton("Start Game");
+        startButton.addActionListener(e -> {
+            String xName = xNameField.getText().trim();
+            String oName = oNameField.getText().trim();
+            if (xName.isEmpty()) {
+                xName = "Player X";
+            }
+            if (oName.isEmpty()) {
+                oName = aiCheck.isSelected() ? "Computer" : "Player O";
+            }
+            aiMode = aiCheck.isSelected();
+            createPlayers(xName, oName, aiMode ? (String) difficultyBox.getSelectedItem() : "Easy");
+            showGameScreen();
+        });
+
+        panel.add(title);
+        panel.add(new JLabel("Player X name:"));
+        panel.add(xNameField);
+        panel.add(aiCheck);
+        panel.add(new JLabel("Player O name:"));
+        panel.add(oNameField);
+        panel.add(new JLabel("AI difficulty:"));
+        panel.add(difficultyBox);
+        panel.add(startButton);
+
+        frame.getContentPane().removeAll();
+        frame.add(panel);
+        frame.revalidate();
+        frame.repaint();
+    }
+
+    private void createPlayers(String xName, String oName, String difficulty) {
+        playerX = new HumanPlayer(xName, "X");
+        if (aiMode) {
+            playerO = new AIPlayer(oName, "O", difficulty);
+        } else {
+            playerO = new HumanPlayer(oName, "O");
+        }
+        currentPlayer = playerX;
+    }
+
+    private void showGameScreen() {
+        board = new GameBoard();
+        boardButtons = new JButton[3][3];
+        gameOver = false;
+
+        JPanel topPanel = new JPanel(new GridLayout(3, 1));
+        topPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 5, 10));
+
+        JLabel titleLabel = new JLabel("Tic Tac Toe", JLabel.CENTER);
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
+
+        playerXLabel = new JLabel(playerX.getName() + " (X)");
+        playerOLabel = new JLabel(playerO.getName() + " (O)");
+        statusLabel = new JLabel(currentPlayer.getName() + "'s turn", JLabel.CENTER);
+        statusLabel.setFont(new Font("Arial", Font.PLAIN, 16));
+
+        topPanel.add(titleLabel);
+        topPanel.add(statusLabel);
+        topPanel.add(new JLabel(playerXLabel.getText() + " vs " + playerOLabel.getText(), JLabel.CENTER));
+
+        boardPanel = new JPanel(new GridLayout(3, 3));
+        boardPanel.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
+
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                JButton button = new JButton("");
+                button.setFont(new Font("Arial", Font.BOLD, 40));
+                button.setFocusPainted(false);
+                button.setBackground(Color.DARK_GRAY);
+                button.setForeground(Color.WHITE);
+                final int r = row;
+                final int c = col;
+                button.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        handleHumanMove(r, c);
+                    }
+                });
+                boardButtons[row][col] = button;
+                boardPanel.add(button);
+            }
+        }
+
+        JButton restartButton = new JButton("Restart Game");
+        restartButton.addActionListener(e -> resetGame());
+
+        JButton backButton = new JButton("Go Back");
+        backButton.addActionListener(e -> showWelcomeScreen());
+
+        JPanel bottomPanel = new JPanel();
+        bottomPanel.add(restartButton);
+        bottomPanel.add(backButton);
+
+        frame.getContentPane().removeAll();
+        frame.setLayout(new BorderLayout());
+        frame.add(topPanel, BorderLayout.NORTH);
+        frame.add(boardPanel, BorderLayout.CENTER);
+        frame.add(bottomPanel, BorderLayout.SOUTH);
+        frame.revalidate();
+        frame.repaint();
+    }
+
+    private void handleHumanMove(int row, int col) {
+        if (gameOver) {
+            return;
+        }
+        if (!(currentPlayer instanceof HumanPlayer)) {
+            return;
+        }
+        if (!board.setCell(row, col, currentPlayer.getSymbol())) {
+            return;
+        }
+        updateButton(row, col);
+        afterMove();
+    }
+
+    private void afterMove() {
+        String winnerSymbol = board.checkWinner();
+        if (!winnerSymbol.isEmpty()) {
+            endGame(currentPlayer.getName());
+            return;
+        }
+        if (board.isFull()) {
+            endGame("");
+            return;
+        }
+        switchPlayer();
+        updateStatus();
+        if (currentPlayer instanceof AIPlayer) {
+            runAIMove();
+        }
+    }
+
+    private void runAIMove() {
+        int[] move = ((AIPlayer) currentPlayer).makeMove(board);
+        if (move == null) {
+            return;
+        }
+        board.setCell(move[0], move[1], currentPlayer.getSymbol());
+        updateButton(move[0], move[1]);
+        afterMove();
+    }
+
+    private void switchPlayer() {
+        currentPlayer = currentPlayer == playerX ? playerO : playerX;
+    }
+
+    private void updateStatus() {
+        statusLabel.setText(currentPlayer.getName() + "'s turn");
+    }
+
+    private void updateButton(int row, int col) {
+        JButton button = boardButtons[row][col];
+        button.setText(currentPlayer.getSymbol());
+        button.setEnabled(false);
+    }
+
+    private void endGame(String winnerName) {
+        gameOver = true;
+        if (winnerName.isEmpty()) {
+            statusLabel.setText("It's a tie!");
+            saveGameResult("Tie");
+        } else {
+            statusLabel.setText(winnerName + " wins!");
+            highlightWinningLine();
+            saveGameResult(winnerName);
+        }
+    }
+
+    private void highlightWinningLine() {
+        int[][] line = board.getWinningLine();
+        if (line == null) {
+            return;
+        }
+        for (int[] cell : line) {
+            int row = cell[0];
+            int col = cell[1];
+            boardButtons[row][col].setBackground(Color.GREEN);
+            boardButtons[row][col].setForeground(Color.BLACK);
+        }
+    }
+
+    private void resetGame() {
+        gameOver = false;
+        board.reset();
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                JButton button = boardButtons[row][col];
+                button.setText("");
+                button.setEnabled(true);
+                button.setBackground(Color.DARK_GRAY);
+                button.setForeground(Color.WHITE);
+            }
+        }
+        currentPlayer = playerX;
+        statusLabel.setText(currentPlayer.getName() + "'s turn");
+    }
+
+    private void saveGameResult(String winnerName) {
+        String result = playerX.getName() + " vs " + playerO.getName() + " - Winner: " + winnerName;
+        try {
+            File file = new File(historyFile);
+            FileWriter writer = new FileWriter(file, true);
+            writer.write(result + System.lineSeparator());
+            writer.close();
+        } catch (IOException e) {
+            System.err.println("Cannot save game history: " + e.getMessage());
+        }
+    }
+}
+
+interface Playable {
+    void startGame();
+}
