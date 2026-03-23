@@ -1,0 +1,137 @@
+:root {
+  /* 🌿 Green Palette */
+  --bg-main: #022c22;
+  --bg-panel: #064e3b;
+  --bg-board: #065f46;
+
+  --green-light: #4ade80;
+  --green-mid: #22c55e;
+  --green-dark: #166534;
+
+  --text-main: #ecfdf5;
+  --text-dim: #a7f3d0;
+
+  --border: rgba(74, 222, 128, 0.2);
+
+  --space: 16px;
+
+  --font-default:
+    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-default);
+  background: radial-gradient(circle at center, #022c22, #001a14);
+  color: var(--text-main);
+}
+
+/* Layout */
+main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space);
+  gap: var(--space);
+}
+
+/* 🔝 Top Panel */
+.top {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space);
+  padding: var(--space);
+
+  background: rgba(6, 78, 59, 0.6);
+  backdrop-filter: blur(8px);
+
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.2);
+}
+
+.info h3 {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-dim);
+}
+
+/* 🎮 Board Container */
+.bottom {
+  flex: 1;
+  padding: 10px;
+
+  background: var(--bg-panel);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+
+  box-shadow:
+    inset 0 0 30px rgba(34, 197, 94, 0.2),
+    0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+/* 🧩 Board (NOW FULL GREEN) */
+.board {
+  width: 100%;
+  height: 100%;
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(40px, 1fr));
+
+  background: linear-gradient(
+    145deg,
+    #064e3b,
+    #022c22
+  );
+
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* 🔲 Grid Blocks */
+.block {
+  border: 1px solid rgba(74, 222, 128, 0.08);
+  transition: all 0.15s ease;
+}
+
+/* 🐍 Snake */
+.fill {
+  background: linear-gradient(
+    135deg,
+    var(--green-light),
+    var(--green-mid)
+  );
+
+  box-shadow:
+    0 0 8px var(--green-light),
+    0 0 16px rgba(34, 197, 94, 0.7);
+
+  border-radius: 4px;
+}
+
+/* 🍎 Optional Food (if you add later) */
+.food {
+  background: #f87171;
+
+  box-shadow:
+    0 0 8px #f87171,
+    0 0 16px rgba(248, 113, 113, 0.7);
+
+  border-radius: 50%;
+}
+
+/* ✨ Dev hover feel */
+.block:hover {
+  background: rgba(74, 222, 128, 0.06);
+}
