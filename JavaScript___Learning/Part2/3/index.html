@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<style>
+    .a {
+        background-color: red;
+        width: 400px;
+        height: 250px;
+    }
+
+    .b {
+        background-color: rgb(255, 251, 0);
+        width: 200px;
+        height: 250px;
+    }
+
+    .c {
+        background-color: rgb(0, 255, 13);
+        width: 100px;
+        height: 250px;
+    }
+
+    button {
+        margin: 8px;
+        padding: 10px 20px;
+        width: 380px;
+    }
+</style>
+
+<body>
+    <div class="a">
+        <div class="b">
+            <div class="c"><button>Click Me</button></div>
+        </div>
+    </div>
+    <h2>Red > Yellow > Green > Button</h2>
+</body>
+<script>
+    const button = document.querySelector("button");
+    const red = document.querySelector(".a");
+    const yellow = document.querySelector(".b");
+    const green = document.querySelector(".c");
+    button.addEventListener("click", function () {
+        alert("Button Click");
+    });
+    red.addEventListener("click", function () {
+        alert("red");
+    });
+    yellow.addEventListener("click", function () {
+        alert("yellow");
+    });
+    green.addEventListener("click", function () {
+        alert("green");
+    });
+</script>
+
+</html>

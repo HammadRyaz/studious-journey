@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: #222;
+        color: white;
+        width: stretch;
+        height: 100%;
+    }
+
+    button {
+
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        padding: 10px 30px;
+        font-size: large;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-weight: 900;
+        border-radius: 6px;
+        border: 1px solid black;
+        background-color: lime;
+        color: black;
+        transition: all ease-in 2ms;
+    }
+
+    button:hover {
+        background-color: rgb(4, 202, 4);
+    }
+
+</style>
+
+<body>
+    <input type="file" id="" style="display: none;">
+    <button title="Enabled">Upload File</button>
+</body>
+<script>
+    const btn = document.querySelector("button");
+    const input = document.querySelector("input[type='file']");
+    btn.addEventListener("click", () => {
+        input.click();
+    })
+    input.addEventListener("change", (e) => {
+        btn.textContent = e.target.files[0].name
+        btn.disabled = true
+        btn.title = "Disabled";
+        btn.style.backgroundColor = "#555"
+    })
+    document.addEventListener("dblclick", () => {
+        btn.removeAttribute("disabled");
+        btn.title = "Enabled";
+        btn.style.backgroundColor = "lime"
+        btn.textContent = "Upload Again"
+    })
+
+
+    btn.addEventListener("mousemove", (e) => {
+        btn.style.left = e.clientX + "px";
+        btn.style.top = e.clientY + "px";
+
+    });
+
+
+</script>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Call Notes App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="controls">
+      <button id="addBtn" class="circle">+</button>
+      <button id="prevBtn" class="circle">↑</button>
+      <button id="nextBtn" class="circle">↓</button>
+    </div>
+
+    <!-- FORM CARD -->
+    <form id="callForm" class="card form-card hidden">
+      <h2>New Call</h2>
+
+      <label>Image URL</label>
+      <input type="text" id="imgUrl" placeholder="https://example.com/photo.jpg" />
+
+      <label>Full Name</label>
+      <input type="text" id="fullName" placeholder="Enter full name" />
+
+      <label>Home Town</label>
+      <input type="text" id="homeTown" placeholder="Enter home town" />
+
+      <label>Purpose</label>
+      <input type="text" id="purpose" placeholder="e.g., Quick appointment note" />
+
+      <label>Category</label>
+      <div class="categories">
+        <label><input type="radio" name="category" value="Emergency" /> <span class="red">Emergency</span></label>
+        <label><input type="radio" name="category" value="Important" /> <span class="orange">Important</span></label>
+        <label><input type="radio" name="category" value="Urgent" /> <span class="purple">Urgent</span></label>
+        <label><input type="radio" name="category" value="No Rush" /> <span class="gray">No Rush</span></label>
+      </div>
+
+      <button type="submit" class="create">Create Note</button>
+      <button type="button" class="close" id="closeBtn">Close</button>
+    </form>
+
+    <!-- CARD DISPLAY -->
+    <div id="cardDisplay" class="card-display hidden"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
