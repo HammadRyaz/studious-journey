@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+        integrity="sha512-XcIsjKMcuVe0Ucj/xgIXQnytNwBttJbNjltBV18IOnru2lDPe9KRRyvCXw6Y5H415vbBLRm8+q6fmLUU7DfO6Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <div class="left">
+            <div class="top">
+                <input type="file" id="chose-image" accept="image/*" hidden />
+                <button class="btn btn-chose">
+                    Choose Image
+                </button>
+                <button class="btn btn-reset ">Reset</button>
+                <button class="btn btn-download">Download</button>
+            </div>
+            <div class="bottom">
+                <div class="placeholder">
+                    <i class="ri-image-add-line"></i>
+                    <p> No File Choosen</p>
+                </div>
+                <canvas id="canvas"></canvas>
+            </div>
+        </div>
+        <div class="right">
+            <h2>Filters Controler</h2>
+            <div class="filters-container">
+            </div>
+            <div class="presetsContainer">
+            </div>
+        </div>
+    </main>
+</body>
+<script src="script.js"></script>
+
+</html>

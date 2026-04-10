@@ -1,0 +1,25 @@
+:root {
+  /* background Color */
+  --bg-primary-color: #222;
+  --bg-secondary-color: rgb(48, 48, 48);
+  /* Text Color */
+  --text-primary-color: rgb(240, 240, 240);
+  /* Border Color */
+  --border-primary-color: rgb(226, 226, 226);
+  --border-secondary-color: rgba(226, 226, 226, 0.5);
+  /* border radius */
+  --border-radius-xs: 4px;
+  --border-radius-sm: 8px;
+  --border-radius-md: 16px;
+  --border-radius-lg: 20px;
+  --border-radius-xl: 24px;
+  --border-radius-2xl: 32px;
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 40px;
+  --space-3xl: 48px;
+}
