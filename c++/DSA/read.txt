@@ -1,0 +1,6 @@
+cls;
+g++ DSA / main.cpp;
+.\a.exe
+
+        git commit -
+    am
