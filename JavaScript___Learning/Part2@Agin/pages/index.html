@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Part
+    </title>
+</head>
+<style>
+    .btnRed {
+        background-color: red;
+    }
+    .btn {
+        font-size: xx-large;
+    }
+</style>
+
+<body>
+    <h1>
+        Heading 1 <p style="display: none;">Lorem, ipsum dolor.</p>
+    </h1>
+    <button class="btn" disabled>BUTTON</button>
+</body>
+<script>
+    const h1 = document.querySelector("h1");
+    console.log("innerText -> ");
+    console.log(h1.innerText);
+    console.log("textContent -> ");
+    console.log(h1.textContent);
+    h1.setAttribute("title", "this is heading");
+    const button = document.querySelector("button")
+    button.removeAttribute("disabled");
+    button.addEventListener("click", () => {
+        button.classList.toggle("btnRed")
+    })
+    window.addEventListener("keyup", (e) => {
+        e.key == " " ? button.textContent = "Space Bar" : button.textContent = e.key;
+    })  
+</script>
+
+</html>
