@@ -1,0 +1,24 @@
+$colorno1 : rgb(207, 2, 46);
+h2{
+    color: $colorno1;
+}
+
+p{
+    background-color: $colorno1;
+     font-size: xx-large;
+}
+
+div{
+    h2{
+        color: green;
+    }
+    p{
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+    font-size: xx-large;
+}
+
+h3 , h1 {
+    background-color: black;
+    color: white;
+}

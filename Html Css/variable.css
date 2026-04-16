@@ -1,0 +1,25 @@
+h2 {
+  color: rgb(207, 2, 46);
+}
+
+p {
+  background-color: rgb(207, 2, 46);
+  font-size: xx-large;
+}
+
+div h2 {
+  color: green;
+}
+div p {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+div {
+  font-size: xx-large;
+}
+
+h3, h1 {
+  background-color: black;
+  color: white;
+}
+
+/*# sourceMappingURL=variable.css.map */
