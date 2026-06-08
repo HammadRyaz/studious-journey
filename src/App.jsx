@@ -2,14 +2,9 @@ import React from 'react'
 import Header from './Header';
 
 const App = () => {
-    /**
-     * Review Challenge:
-     * Map over the list of ingredients and render them as list items
-     * 
-     * Note: We're doing things a weird way here. Don't worry,
-     * we're building up to learning the right way 🙂
-     */
-    
+  const ingredients = ["Chicken", "Oregano", "Tomatoes"]
+  const ingredientsListItem = ingredients.map(i => <li>{i}</li>)
+
   return (
     <>
       <Header />
@@ -22,8 +17,8 @@ const App = () => {
           />
           <button>Add ingredient</button>
         </form>
-        <ul>
-          {/* Render ingredientsList here */}
+        <ul className='py-2'>
+          {ingredientsListItem}
         </ul>
       </main>
     </>
