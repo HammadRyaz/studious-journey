@@ -1,8 +1,32 @@
 import React from 'react'
+import Header from './Header';
 
 const App = () => {
+    /**
+     * Review Challenge:
+     * Map over the list of ingredients and render them as list items
+     * 
+     * Note: We're doing things a weird way here. Don't worry,
+     * we're building up to learning the right way 🙂
+     */
+    
   return (
-    <div>App</div>
+    <>
+      <Header />
+      <main>
+        <form className="add-ingredient-form">
+          <input
+            type="text"
+            placeholder="e.g. oregano"
+            aria-label="Add ingredient"
+          />
+          <button>Add ingredient</button>
+        </form>
+        <ul>
+          {/* Render ingredientsList here */}
+        </ul>
+      </main>
+    </>
   )
 }
 
