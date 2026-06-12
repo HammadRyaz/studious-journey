@@ -2,4 +2,4 @@
 - branch - react ( Learning React Js Concepts)
 - branch - frontendMath ( Learning Practical Math for FrontEnd Developer)
 - branch - reactjs/chefClaudeApp ( react  chefClaude app project)
-- branch - reactjs/memeGenerator  ( react  meme generator app project)
+- branch - reactjs/tenzies  ( react  tenzies game app project)
