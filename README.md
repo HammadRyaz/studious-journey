@@ -1,4 +1,4 @@
-## All Files are in git history no file stored openly so you need switch branches to see all codes & folder
+## All files are in the Git history and no files are stored openly here, so you need to switch branches to see all the code and folders.
 - branch - react ( Learning React Js Concepts)
 - branch - frontendMath ( Learning Practical Math for FrontEnd Developer)
 - branch - reactjs/chefClaudeApp ( react  chefClaude app project)
