@@ -10,7 +10,6 @@ const App = () => {
     const formData = new FormData(event.currentTarget)
     const newIngredients = formData.get("ingredient")
     setIngredients(prev => [...prev, newIngredients])
-
   }
 
   return (
