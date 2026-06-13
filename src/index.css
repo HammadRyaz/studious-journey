@@ -139,6 +139,9 @@ section.keyboard > button.correct {
 section.keyboard > button.wrong {
   background-color: #ec5d49;
 }
+section.keyboard > button.disabled {
+  opacity: 0.5;
+}
 
 button.new-game {
   background-color: #11b5e5;
