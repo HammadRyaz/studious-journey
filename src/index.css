@@ -23,7 +23,7 @@ header {
 }
 
 header > h1 {
-  font-size: 1.25rem;
+  font-size: 2rem;
   font-weight: 500;
   color: #f9f4da;
 }
@@ -44,6 +44,7 @@ section.game-status {
   min-height: 60px;
   border-radius: 4px;
   margin-block: 30px;
+  text-align: center;
 }
 
 section.game-status.won {
@@ -123,6 +124,8 @@ section.keyboard {
 section.keyboard > button {
   height: 35px;
   width: 35px;
+  color: #262626;
+  font-weight: bold;
   background-color: #fcba29;
   border: 1px solid #d7d7d7;
   border-radius: 3px;
