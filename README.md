@@ -5,3 +5,4 @@
 - branch - reactjs/chefClaudeApp ( react chefClaude app project)
 - branch - reactjs/tenzies ( react tenzies game app project)
 - branch - reactjs/AssemblyEndgame ( react AssemblyEndgame app project)
+- branch - reactjs/40-Challenges ( 40 React Project Challenges )
