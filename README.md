@@ -1,8 +1,42 @@
-## All files are in the Git history and no files are stored openly here, so you need to switch branches to see all the code and folders.
+Based on the course syllabus, here are all 40 React challenges included in the course:
 
-- branch - react ( Learning React Js Concepts)
-- branch - frontendMath ( Learning Practical Math for FrontEnd Developer)
-- branch - reactjs/chefClaudeApp ( react chefClaude app project)
-- branch - reactjs/tenzies ( react tenzies game app project)
-- branch - reactjs/AssemblyEndgame ( react AssemblyEndgame app project)
-- branch - reactjs/40-Challenges ( 40 React Project Challenges )
+- 1. Video Game Button
+- 2. React Study Buddy
+- 3. RPG Character Creator
+- 4. World's Most Annoying Form
+- 5. The Legend of Scrimba
+- 6. Math-o-Matic Quiz Generator
+- 7. Simple Food Restaurant
+- 8. Haunted House Real Estate
+- 9. Original Calculator
+- 10. Top 100 Colors
+- 11. Enemies in the Castle
+- 12. Word Power
+- 13. Million Dollar Bank Account
+- 14. Save the Dashboard
+- 15. Stock Tracker
+- 16. Weird Wikipedia Articles
+- 17. Fire Starter
+- 18. Mood Tracker
+- 19. AutoComplete
+- 20. Anti-Motivational Quote App
+- 21. Frontend Birthday Cards
+- 22. File Uploader
+- 23. Photo Editor
+- 24. Spam Newsletter
+- 25. Weather App
+- 26. Read-Me-Later
+- 27. Finger Strength Test
+- 28. Boredom Blaster 3000
+- 29. Sonnet Central
+- 30. Virtual Reality Site Enter Button
+- 31. Emoji Personality Test
+- 32. Employee Spying Program
+- 33. ScrimbaFest
+- 34. Legit File Sharing Site Download Button
+- 35. Broken Clock
+- 36. Sketch-o-Matic
+- 37. Debatable
+- 38. Pookémon
+- 39. Scrimbatronic
+- 40. Space Warrior
