@@ -50,6 +50,7 @@ const App = () => {
       </button>
     );
   });
+
   function addGuessLetter(letter) {
     setGuessLetter((prev) => {
       return isWon || isLost ? prev : prev.includes(letter) ? prev : [...prev, letter]
