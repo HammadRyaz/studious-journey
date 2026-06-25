@@ -86,7 +86,13 @@ footer {
   align-items: center;
   margin-top: auto;
   font-weight: 500;
+
 }
+
+.Outlet{
+    height: 100vh;
+}
+
 
 .link-button {
   display: inline-block;
