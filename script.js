@@ -183,17 +183,15 @@ function Parent(name, age, role) {
     Child.call(this, name, age)
     this.role = role
 }
-
+Parent.prototype = Object.create(Child.prototype)
+Parent.prototype.constructor = Parent;
 Parent.prototype.sayRole = function () {
     console.log(this.role)
 }
 
-Parent.prototype = Object.create(Child.prototype)
-Parent.prototype.constructor = Parent;
-
 const p1 = new Parent("Hamamd", 21, "Teacher")
 const c1 = new Child("Ali", 21, "Student")
-// p1.sayRole()
+p1.sayRole()
 p1.sayName()
 // console.log(Parent.prototype.constructor === Child);
 // console.log(p1.constructor);
