@@ -81,7 +81,7 @@
 //     setViews(){
 //         this.views++
 //     }
-   
+
 // }
 
 // const ali = new Youtuber("","1k")
@@ -171,28 +171,32 @@
 
 
 // Inheritance ----------------------
-function Child(name , age){
+function Child(name, age) {
     this.name = name;
     this.age = age;
 }
-Child.prototype.sayName =  function(){
-        console.log(this.name)
-    }
+Child.prototype.sayName = function () {
+    console.log(this.name)
+}
 
-function Parent(name,age,role){
-    Child.call(this,name,age)
+function Parent(name, age, role) {
+    Child.call(this, name, age)
     this.role = role
-    this.sayRole = function(){
+    this.sayRole = function () {
         console.log(this.role)
     }
 }
 
 Parent.prototype = Object.create(Child.prototype)
-Parent.prototype.constructor =  Parent;
+Parent.prototype.constructor = Parent;
 
-const p1 = new Parent("Hamamd", 21 , "Teacher")
+const p1 = new Parent("Hamamd", 21, "Teacher")
+const c1 = new Child("Ali", 21, "Student")
 p1.sayRole()
 p1.sayName()
 // console.log(Parent.prototype.constructor === Child);
-console.log(p1.constructor);
+// console.log(p1.constructor);
+
+console.log(p1)
+console.log(c1)
 
