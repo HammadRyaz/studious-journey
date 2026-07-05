@@ -48,24 +48,52 @@
 
 
 //  Deep Copy with fucntion
-class Player {
-    constructor(name) {
-        this.name = name;
-        this.score = 0;
-        this.skills = ["html", "css", "js"];
-    }
+// class Player {
+//     constructor(name) {
+//         this.name = name;
+//         this.score = 0;
+//         this.skills = ["html", "css", "js"];
+//     }
 
-    incrementScore() {
-        this.score++;
+//     incrementScore() {
+//         this.score++;
+//     }
+// }
+// const player = new Player("Dave");
+// player.incrementScore()
+
+// const copy = structuredClone(player);
+// Object.setPrototypeOf(copy , P)
+// copy.incrementScore()
+
+// console.log(player)
+// console.log(copy)
+// console.log(copy instanceof Player); 
+
+
+
+class Youtuber{
+    constructor(name, subs){
+        this.name = name || "Ali";
+        this.subs = subs
+        this.views = 10
     }
+    setViews(){
+        this.views++
+    }
+   
 }
-const player = new Player("Dave");
-player.incrementScore()
 
-const copy = structuredClone(player);
-Object.setPrototypeOf(copy , P)
-copy.incrementScore()
+const ali = new Youtuber("","1k")
+ali.setViews()
 
-console.log(player)
-console.log(copy)
-console.log(copy instanceof Player); 
+//  Deep Copy!
+const hammad = structuredClone(ali);
+Object.setPrototypeOf(hammad, Youtuber.prototype)
+hammad.name="Hammad"
+hammad.setViews()
+
+
+
+console.log("ALi: " ,ali)
+console.log("Hammad: " ,hammad)
