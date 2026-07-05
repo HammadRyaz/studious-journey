@@ -12,6 +12,24 @@
 
 
 // Shallow Copy
+// const player = {
+//     name: 'Dave',
+//     score: 0,
+//     incrementScore: function(){
+//         this.score++   
+//     },
+//     skills : ['html','css','js']
+// } 
+// const player2 = {}
+// Object.assign(player2,player)
+// player2.name = "Hammad";
+// player2.skills[0] = "react";
+
+// console.log("1 :- " ,player)
+// console.log("2 :- " ,player2)
+
+
+//  Deep Copy
 const player = {
     name: 'Dave',
     score: 0,
@@ -19,9 +37,8 @@ const player = {
         this.score++   
     },
     skills : ['html','css','js']
-} 
-const player2 = {}
-Object.assign(player2,player)
+}
+const player2 = structuredClone(player)
 player2.name = "Hammad";
 player2.skills[0] = "react";
 
