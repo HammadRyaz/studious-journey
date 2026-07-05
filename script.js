@@ -115,18 +115,41 @@
 // console.log("Obj : ", obj)
 // console.log("obj2 : " ,obj2)
 
+// structurdClone ---------
+// const obj = {
+//     name : "Hammad",
+//     age : 3,
+//     skills : ["html","css","js"]
+// }
+// const obj2 = structuredClone(obj)
+
+// obj.age = 10;
+// obj2.age = 11;
+// // obj2.skills = ["react","node","git"] // Poor Refernce Replace ho skti
+// obj2.skills[0] = "react" //  lkn koi aik value nahi
+// obj.skills[1] = "python"
+// console.log("Obj : ", obj)
+// console.log("obj2 : " ,obj2)
+
 
 const obj = {
     name : "Hammad",
     age : 3,
-    skills : ["html","css","js"]
+    skills : ["html","css","js"],
+    increaseAge : function(){
+        this.age++
+    }
 }
-const obj2 = structuredClone(obj)
+
+// const obj2 = structuredClone(obj)
+const obj2 = {}
+Object.assign(obj2,obj)
 
 obj.age = 10;
 obj2.age = 11;
 // obj2.skills = ["react","node","git"] // Poor Refernce Replace ho skti
 obj2.skills[0] = "react" //  lkn koi aik value nahi
 obj.skills[1] = "python"
+
 console.log("Obj : ", obj)
 console.log("obj2 : " ,obj2)
