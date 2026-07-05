@@ -155,15 +155,44 @@
 // console.log("obj2 : " ,obj2)
 
 
-function displayPolitician(currentSituation) {
-    console.log(this)
-    console.log(`${this.name} is ${this.age} years old. Current situation: ${currentSituation}.`)
+// function displayPolitician(currentSituation) {
+//     console.log(this)
+//     console.log(`${this.name} is ${this.age} years old. Current situation: ${currentSituation}.`)
+// }
+
+// const politician1 = {
+//   name: 'Carly Fowler',
+//   age: 40
+// }
+
+// // displayPolitician.apply(politician1,[ "goto jail"])
+// displayPolitician.call(politician1,[ "goto jail"])
+
+
+
+// Inheritance ----------------------
+function Child(name , age){
+    this.name = name;
+    this.age = age;
+}
+Child.prototype.sayName =  function(){
+        console.log(this.name)
+    }
+
+function Parent(name,age,role){
+    Child.call(this,name,age)
+    this.role = role
+    this.sayRole = function(){
+        console.log(this.role)
+    }
 }
 
-const politician1 = {
-  name: 'Carly Fowler',
-  age: 40
-}
+Parent.prototype = Object.create(Child.prototype)
+Parent.prototype.constructor =  Parent;
 
-// displayPolitician.apply(politician1,[ "goto jail"])
-displayPolitician.call(politician1,[ "goto jail"])
+const p1 = new Parent("Hamamd", 21 , "Teacher")
+p1.sayRole()
+p1.sayName()
+// console.log(Parent.prototype.constructor === Child);
+console.log(p1.constructor);
+
