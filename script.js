@@ -132,24 +132,38 @@
 // console.log("obj2 : " ,obj2)
 
 
-const obj = {
-    name : "Hammad",
-    age : 3,
-    skills : ["html","css","js"],
-    increaseAge : function(){
-        this.age++
-    }
+// const obj = {
+//     name : "Hammad",
+//     age : 3,
+//     skills : ["html","css","js"],
+//     increaseAge : function(){
+//         this.age++
+//     }
+// }
+
+// // const obj2 = structuredClone(obj)
+// const obj2 = {}
+// Object.assign(obj2,obj)
+
+// obj.age = 10;
+// obj2.age = 11;
+// // obj2.skills = ["react","node","git"] // Poor Refernce Replace ho skti
+// obj2.skills[0] = "react" //  lkn koi aik value nahi
+// obj.skills[1] = "python"
+
+// console.log("Obj : ", obj)
+// console.log("obj2 : " ,obj2)
+
+
+function displayPolitician(currentSituation) {
+    console.log(this)
+    console.log(`${this.name} is ${this.age} years old. Current situation: ${currentSituation}.`)
 }
 
-// const obj2 = structuredClone(obj)
-const obj2 = {}
-Object.assign(obj2,obj)
+const politician1 = {
+  name: 'Carly Fowler',
+  age: 40
+}
 
-obj.age = 10;
-obj2.age = 11;
-// obj2.skills = ["react","node","git"] // Poor Refernce Replace ho skti
-obj2.skills[0] = "react" //  lkn koi aik value nahi
-obj.skills[1] = "python"
-
-console.log("Obj : ", obj)
-console.log("obj2 : " ,obj2)
+// displayPolitician.apply(politician1,[ "goto jail"])
+displayPolitician.call(politician1,[ "goto jail"])
