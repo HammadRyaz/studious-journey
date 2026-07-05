@@ -72,28 +72,43 @@
 
 
 
-class Youtuber{
-    constructor(name, subs){
-        this.name = name || "Ali";
-        this.subs = subs
-        this.views = 10
-    }
-    setViews(){
-        this.views++
-    }
+// class Youtuber{
+//     constructor(name, subs){
+//         this.name = name || "Ali";
+//         this.subs = subs
+//         this.views = 10
+//     }
+//     setViews(){
+//         this.views++
+//     }
    
+// }
+
+// const ali = new Youtuber("","1k")
+// ali.setViews()
+
+// //  Deep Copy!
+// const hammad = structuredClone(ali);
+// Object.setPrototypeOf(hammad, Youtuber.prototype)
+// hammad.name="Hammad"
+// hammad.setViews()
+
+
+
+// console.log("ALi: " ,ali)
+// console.log("Hammad: " ,hammad)
+
+
+const obj = {
+    name : "Hammad",
+    age : 3
 }
+const obj2 = {}
+Object.assign(obj2,obj)
 
-const ali = new Youtuber("","1k")
-ali.setViews()
-
-//  Deep Copy!
-const hammad = structuredClone(ali);
-Object.setPrototypeOf(hammad, Youtuber.prototype)
-hammad.name="Hammad"
-hammad.setViews()
+obj.age = 10;
+obj2.age = 11;
 
 
-
-console.log("ALi: " ,ali)
-console.log("Hammad: " ,hammad)
+console.log("Obj : ", obj)
+console.log("obj2 : " ,obj2)
