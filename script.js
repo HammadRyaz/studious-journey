@@ -182,10 +182,11 @@ Child.prototype.sayName = function () {
 function Parent(name, age, role) {
     Child.call(this, name, age)
     this.role = role
-    this.sayRole = function () {
+}
+
+Parent.prototype.sayRole =function () {
         console.log(this.role)
     }
-}
 
 Parent.prototype = Object.create(Child.prototype)
 Parent.prototype.constructor = Parent;
