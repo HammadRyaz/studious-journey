@@ -1,4 +1,5 @@
 
 export const classes = () => {
-    console.log("learning Classes")
+    console.log("hehe")
 }
+classes()

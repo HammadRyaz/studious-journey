@@ -199,3 +199,5 @@ export const workingWithObject = () => {
     console.log(p1.logData())
 }
 
+
+workingWithObject()
