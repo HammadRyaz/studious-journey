@@ -34,6 +34,7 @@ export const classes = () => {
     const u1 = new Person("Hammad", "user")
     console.log(u1)
     const a1 = new Admin("Hamster", "admin");
+
     console.log(a1)
 }
 classes()
