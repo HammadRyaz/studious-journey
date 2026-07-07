@@ -48,7 +48,7 @@ export const classes = () => {
             return this.#destination
         }
         set destination(newDestination) {
-            if (newDestination != "")
+            if (typeof newDestination == 'string' && newDestination !== '')
                 return this.#destination = newDestination
             else
                 throw new Error("destination not valid")
