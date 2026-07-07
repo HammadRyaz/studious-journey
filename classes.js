@@ -44,10 +44,17 @@ export const classes = () => {
             this.#destination = destination
             this.price = price
         }
+        getDestination() {
+            return this.#destination
+        }
+        setDestination(newDestination) {
+            return this.#destination = newDestination
+        }
     }
 
     const safari = new Holiday('Kenya', 1000)
-    console.log(safari)
+    console.log(safari.getDestination())
+    console.log(safari.setDestination("lahore"))
 
 
 
