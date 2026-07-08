@@ -78,14 +78,10 @@ export const symbols = () => {
     function getSummary() {
         /* This function should make the following appear in the console */
 
-        //Alice's average time is 58.3 but today Alice achieved 57.3
-        //Dave's average time is 53.2 but today Dave achieved 61.1
-        //Micky's average time is 64.5 but today Micky achieved 59.9
-        //Judy's average time is 66 but today Judy achieved 61.6
-        console.log(athletes)
-        athletes.forEach((val, key) =>
-            console.log(`${key.name} average time is ${key.averageTime10KmMins} but today Judy achieved ${val}`)
-        )
+        // console.log(athletes)
+        // athletes.forEach((val, key) =>
+        //     console.log(`${key.name} average time is ${key.averageTime10KmMins} but today Judy achieved ${val}`)
+        // )
     }
 
     addAthlete(athlete1, 57.3)
@@ -94,6 +90,28 @@ export const symbols = () => {
     addAthlete(athlete4, 61.6)
 
     getSummary()
+
+    // ---------- Confusing part -----------
+    // const confsMap = new Map("name","Hammad"); // cannot set like this
+    // const confsMap = new Map([["name", "hammad"], ['name', 'ali']]) //Map(1) {'name' => 'ali'}
+    // -----OR------
+    // confsMap.set("name", "hammad")
+    // confsMap.set("name", "ali") //Map(1) {'name' => 'ali'}
+    // Map keys must be unique, just like object property names.
+
+    // const confsMap = new Map([{ name: "ali" }])
+    //This is invalid because the Map constructor expects an iterable of [key, value] pairs.
+    // const confsMap = new Map([
+    //     ["student", { name: "ali" }],
+    // ]) // thats the correct way!
+
+    const animalMap = new Map()
+    let count = 0
+    animalMap
+        .set(count++, { animal: 'cat' })
+        .set(count++, { animal: 'hamster' })
+        .set(count++, { animal: 'duck' })
+    console.log(animalMap) // muliple set in Map()
 };
 
 symbols();
