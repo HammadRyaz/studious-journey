@@ -38,25 +38,26 @@ export const classes = () => {
     // console.log(a1)
 
     // Private ----------------------
-    class Holiday {
-        #destination = "lahore"
-        constructor(destination, price) {
-            this.#destination = destination
-            this.price = price
-        }
-        get destination() {
-            return this.#destination
-        }
-        set destination(newDestination) {
-            if (typeof newDestination == 'string' && newDestination !== '')
-                return this.#destination = newDestination
-            else
-                throw new Error("destination not valid")
-        }
-    }
+    // class Holiday {
+    //     #destination = "lahore"
+    //     constructor(destination, price) {
+    //         this.#destination = destination
+    //         this.price = price
+    //     }
+    //     get destination() {
+    //         return this.#destination
+    //     }
+    //     set destination(newDestination) {
+    //         if (typeof newDestination == 'string' && newDestination !== '')
+    //             return this.#destination = newDestination
+    //         else
+    //             throw new Error("destination not valid")
+    //     }
+    // }
 
-    const safari = new Holiday('Kenya', 1000)
-    safari.destination = "lahore"
-    console.log(safari.destination)
+    // const safari = new Holiday('Kenya', 1000)
+    // safari.destination = "lahore"
+    // console.log(safari.destination)
+
 }
 classes()

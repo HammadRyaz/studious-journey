@@ -1,0 +1,29 @@
+export const symbols = () => {
+
+
+    const secret = Symbol("HSKJAD-221BN803-HDBW92");
+
+    const user = {
+        name: "Hammad",
+        [secret]: secret.toString(),
+        age: 20
+    }
+    console.log(user[secret])
+
+
+    /*
+ Challenge:
+     1. Add a hidden property to the book object 
+        holding a librarian’s note to say the book 
+        has gone missing. 
+     2. Log out the new property.
+ */
+
+    const book = {
+        title: "The Catcher in the Rye",
+        author: "J.D. Salinger",
+        year: 1951
+    }
+}
+
+symbols()
