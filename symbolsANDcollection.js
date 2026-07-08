@@ -9,12 +9,12 @@ export const symbols = () => {
     // console.log(user[secret])
 
     /*
-   Challenge:
-       1. Add a hidden property to the book object 
-          holding a librarian’s note to say the book 
-          has gone missing. 
-       2. Log out the new property.
-   */
+     Challenge:
+         1. Add a hidden property to the book object 
+            holding a librarian’s note to say the book 
+            has gone missing. 
+         2. Log out the new property.
+     */
     // const book = {
     //     title: "The Catcher in the Rye",
     //     author: "J.D. Salinger",
@@ -35,7 +35,6 @@ export const symbols = () => {
     // usrMap.set(key1, "first")
     // usrMap.set(key2, "second")
     // console.log(usrMap)
-
 
     // ----------with and without --------------
     const userObj = {};
@@ -61,10 +60,10 @@ export const symbols = () => {
     // ===============================================================
     // Exercise------1 Scrimba
 
-    const athlete1 = { name: 'Alice', averageTime10KmMins: 58.3 }
-    const athlete2 = { name: 'Dave', averageTime10KmMins: 53.2 }
-    const athlete3 = { name: 'Micky', averageTime10KmMins: 64.5 }
-    const athlete4 = { name: 'Judy', averageTime10KmMins: 66.0 }
+    const athlete1 = { name: "Alice", averageTime10KmMins: 58.3 };
+    const athlete2 = { name: "Dave", averageTime10KmMins: 53.2 };
+    const athlete3 = { name: "Micky", averageTime10KmMins: 64.5 };
+    const athlete4 = { name: "Judy", averageTime10KmMins: 66.0 };
 
     /* Challenge */
 
@@ -72,24 +71,23 @@ export const symbols = () => {
     const athletes = new Map();
     function addAthlete(athlete, time) {
         /* 2. This function should add athletes to the "athletes" map. */
-        athletes.set(athlete, time)
+        athletes.set(athlete, time);
     }
 
     function getSummary() {
         /* This function should make the following appear in the console */
-
         // console.log(athletes)
         // athletes.forEach((val, key) =>
         //     console.log(`${key.name} average time is ${key.averageTime10KmMins} but today Judy achieved ${val}`)
         // )
     }
 
-    addAthlete(athlete1, 57.3)
-    addAthlete(athlete2, 61.1)
-    addAthlete(athlete3, 59.9)
-    addAthlete(athlete4, 61.6)
+    addAthlete(athlete1, 57.3);
+    addAthlete(athlete2, 61.1);
+    addAthlete(athlete3, 59.9);
+    addAthlete(athlete4, 61.6);
 
-    getSummary()
+    getSummary();
 
     // ---------- Confusing part -----------
     // const confsMap = new Map("name","Hammad"); // cannot set like this
@@ -105,21 +103,45 @@ export const symbols = () => {
     //     ["student", { name: "ali" }],
     // ]) // thats the correct way!
 
-    const animalMap = new Map()
-    let count = 0
-    animalMap
-        .set(count++, { animal: 'cat' })
-        .set(count++, { animal: 'hamster' })
-        .set(count++, { animal: 'duck' })
+    // const animalMap = new Map()
+    // let count = 0
+    // animalMap
+    //     .set(count++, { animal: 'cat' })
+    //     .set(count++, { animal: 'hamster' })
+    //     .set(count++, { animal: 'duck' })
 
-    const allKey = [...animalMap.keys()]
-    const allValues = [...animalMap.values()];
-    const allEntries = [...animalMap.entries()];
-    console.log(allKey)
-    console.log(allValues)
-    console.log(allEntries)
-    const map = allValues.map((animal) => console.log(animal))
-    console.log(animalMap) // muliple set in Map()
+    // const allKey = [...animalMap.keys()]
+    // const allValues = [...animalMap.values()];
+    // const allEntries = [...animalMap.entries()];
+    // console.log(allKey)
+    // console.log(allValues)
+    // console.log(allEntries)
+    // const map = allValues.map((animal) => console.log(animal))
+    // console.log(animalMap) // muliple set in Map()
+
+    /*
+  Challenge:
+      1. Convert this to arrow functions.
+  */
+
+    function calculateVolume(length) {
+        return function (width) {
+            return function (height) {
+                return length * width * height;
+            };
+        };
+    }
+
+    // const withLength = calculateVolume(2)
+    // const withLengthAndWidth = withLength(3)
+    // const volume = withLengthAndWidth(4)
+
+    const volume = calculateVolume(2)(3)(4);
+    const calculateVolumeArow = length => width => height => length * width * height;
+    const volumeArow = calculateVolumeArow(2)(3)(4);
+
+    console.log(volume);
+    console.log(volumeArow);
 };
 
 symbols();
