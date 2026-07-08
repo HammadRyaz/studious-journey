@@ -142,6 +142,20 @@ export const symbols = () => {
 
     console.log(volume);
     console.log(volumeArow);
+
+    const calculateVolumeReuse = length => width => height => length * width * height
+
+    const calculateBaseAreaVolume = calculateVolumeReuse(2)(3)
+    const height1 = calculateBaseAreaVolume(4)
+    const height2 = calculateBaseAreaVolume(6)
+    const height3 = calculateBaseAreaVolume(10)
+
+
+    console.log(height1)
+    console.log(height2)
+    console.log(height3)
+
 };
+
 
 symbols();
