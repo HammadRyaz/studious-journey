@@ -114,8 +114,10 @@ export const symbols = () => {
 
     const allKey = [...animalMap.keys()]
     const allValues = [...animalMap.values()];
+    const allEntries = [...animalMap.entries()];
     console.log(allKey)
     console.log(allValues)
+    console.log(allEntries)
     const map = allValues.map((animal) => console.log(animal))
     console.log(animalMap) // muliple set in Map()
 };
