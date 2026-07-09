@@ -25,6 +25,10 @@ export const generator = () => {
     btn.addEventListener("click", () => {
         g.next()
     })
+    document.body.style.minHeight = "1200px"
+    document.body.addEventListener("scroll", () => {
+        g.next()
+    })
 
 }
 
