@@ -16,132 +16,108 @@ current directory and its subdirectories
 - *OUTPUT:* ./README.md and ./scrimba_cli_course/geography_game/README.md
 
 --------------------------------------------------------
-## All Commands
+The Backend Development Path!
+📂 Navigation & Directory Basics
+1. pwd (Print Working Directory)
+Description: Tells you exactly where you are in the file system by printing the full path of the current directory.
+Syntax: pwd
+Example: pwd (Outputs: /home/user/projects)
+2. ls (List)
+Description: Lists all the files and folders inside your current directory.
+Syntax: ls [options]
+Example: ls
+3. cd (Change Directory)
+Description: Moves you from your current folder into a different folder.
+Syntax: cd [path_to_directory]
+Example: cd projects/geography_game
+4. cd .. (Move Up One Level)
+Description: Moves you backward out of the current folder and into its parent directory.
+Syntax: cd ..
+Example: cd ..
+📄 Managing Files & Folders
+5. touch (Create a File)
+Description: Creates a brand new, empty file with the name and extension you specify.
+Syntax: touch [filename.ext]
+Example: touch rules.txt
+6. mkdir (Make Directory)
+Description: Creates a new, empty folder (directory) inside your current location.
+Syntax: mkdir [folder_name]
+Example: mkdir cities
+7. rm (Remove File)
+Description: Permanently deletes a specific file.
+Syntax: rm [filename.ext]
+Example: rm old_notes.txt
+8. rmdir (Remove Directory)
+Description: Permanently deletes an empty folder.
+Syntax: rmdir [folder_name]
+Example: rmdir cities
+9. rm -r (Recursive Remove)
+Description: Forcefully deletes a folder and everything inside it (all files and subfolders). Use with caution!
+Syntax: rm -r [folder_name]
+Example: rm -r geography_game
+✍️ Reading & Writing Content
+10. echo (Print Text)
+Description: Repeats or displays a string of text back to the terminal window. Often used with > or >> to write text to files.
+Syntax: echo "[text]"
+Example: echo "Welcome to the game"
+11. cat (Concatenate / Read File)
+Description: Reads the contents of a file and prints it directly into the terminal window.
+Syntax: cat [filename.ext]
+Example: cat rules.txt
+12. mv (Move or Rename)
+Description: Moves a file/folder to a new location, or renames it if kept in the same location.
+Syntax: mv [source] [destination]
+Example: mv rules.txt about_the_game.txt (Renaming)
+13. cp (Copy)
+Description: Makes a duplicate copy of a file at a designated destination.
+Syntax: cp [source_file] [new_file]
+Example: cp rules.txt backup_rules.txt
+⚡ Power Tools (Searching & Modifying)
+14. grep (Global Regular Expression Print)
+Description: Searches for specific text patterns inside files and prints out the entire line matching that pattern.
+Syntax: grep '[pattern]' [file(s)]
+Example: grep 'CEO' team_members.txt
+15. grep -n (Search with Line Numbers)
+Description: Displays matching lines along with the exact line numbers where they appear in the file.
+Syntax: grep -n '[pattern]' [file(s)]
+Example: grep -n ',' team*
+16. grep -i (Case-Insensitive Search)
+Description: Searches for a text pattern while ignoring uppercase/lowercase differences.
+Syntax: grep -i '[pattern]' [file(s)]
+Example: grep -i 'ceo' team_members.txt
+17. grep -r (Recursive Search)
+Description: Searches for a text pattern in every single file inside the current folder and all of its subfolders.
+Syntax: grep -r '[pattern]' [directory]
+Example: grep -r ',' . (The . means current directory)
+18. wc (Word Count)
+Description: Counts lines, words, and characters in a file (using -l counts just lines).
+Syntax: wc [options] [file]
+Example: wc -l capitals.txt
+19. sort (Sort Lines)
+Description: Sorts the lines of text in a file alphabetically or numerically.
+Syntax: sort [file]
+Example: sort countries.txt
+Got it! Let’s add sed to your notes right after the grep commands. It fits perfectly in the Power Tools section because it's how you actually edit the file text you find.
 
-## 📂 Navigation & Directory Basics
+20. sed (Stream Editor - Replace Content)
+Description: Searches for a text pattern in a file and replaces it with new content. By default, it only replaces the first instance on each line and only shows the result in the terminal (the original file stays unchanged).
+Syntax: sed 's/[old_pattern]/[new_replacement]/' [filename]
+Example: sed 's/,/:/' team_members.txt (Replaces the first comma on each line with a colon)
+21. sed with Global and Case-Insensitive Options
+Description: Uses flags inside the quotes to modify how it replaces text: g makes it global (replaces every match on the line, not just the first), and I makes the search case-insensitive.
+Syntax: sed 's/[old_pattern]/[new_replacement]/gI' [filename]
+Example: sed 's/a/z/gI' team_members.txt (Replaces every "a" and "A" with "z")
+22. Saving sed Changes (Redirection)
+Description: Because sed doesn't change the original file by default, you use the > redirection operator to save the modified text into a brand-new file. This is the safest way to edit files without losing your original data.
+Syntax: sed 's/[old_pattern]/[new_replacement]/' [old_file] > [new_file]
+Example: sed 's/,/:/g' team_members.txt > new_team_members.txt
+Here is the entry for the Pipe character, right where it belongs at the end of your Power Tools section:
 
-### 1. `pwd` (Print Working Directory)
-
-* **Description:** Tells you exactly where you are in the file system by printing the full path of the current directory.
-* **Syntax:** `pwd`
-* **Example:** `pwd` *(Outputs: `/home/user/projects`)*
-
-### 2. `ls` (List)
-
-* **Description:** Lists all the files and folders inside your current directory.
-* **Syntax:** `ls [options]`
-* **Example:** `ls`
-
-### 3. `cd` (Change Directory)
-
-* **Description:** Moves you from your current folder into a different folder.
-* **Syntax:** `cd [path_to_directory]`
-* **Example:** `cd projects/geography_game`
-
-### 4. `cd ..` (Move Up One Level)
-
-* **Description:** Moves you backward out of the current folder and into its parent directory.
-* **Syntax:** `cd ..`
-* **Example:** `cd ..`
-
----
-
-## 📄 Managing Files & Folders
-
-### 5. `touch` (Create a File)
-
-* **Description:** Creates a brand new, empty file with the name and extension you specify.
-* **Syntax:** `touch [filename.ext]`
-* **Example:** `touch rules.txt`
-
-### 6. `mkdir` (Make Directory)
-
-* **Description:** Creates a new, empty folder (directory) inside your current location.
-* **Syntax:** `mkdir [folder_name]`
-* **Example:** `mkdir cities`
-
-### 7. `rm` (Remove File)
-
-* **Description:** Permanently deletes a specific file.
-* **Syntax:** `rm [filename.ext]`
-* **Example:** `rm old_notes.txt`
-
-### 8. `rmdir` (Remove Directory)
-
-* **Description:** Permanently deletes an **empty** folder.
-* **Syntax:** `rmdir [folder_name]`
-* **Example:** `rmdir cities`
-
-### 9. `rm -r` (Recursive Remove)
-
-* **Description:** Forcefully deletes a folder *and* everything inside it (all files and subfolders). Use with caution!
-* **Syntax:** `rm -r [folder_name]`
-* **Example:** `rm -r geography_game`
-
----
-
-## ✍️ Reading & Writing Content
-
-### 10. `echo` (Print Text)
-
-* **Description:** Repeats or displays a string of text back to the terminal window. Often used with `>` or `>>` to write text to files.
-* **Syntax:** `echo "[text]"`
-* **Example:** `echo "Welcome to the game"`
-
-### 11. `cat` (Concatenate / Read File)
-
-* **Description:** Reads the contents of a file and prints it directly into the terminal window.
-* **Syntax:** `cat [filename.ext]`
-* **Example:** `cat rules.txt`
-
-### 12. `mv` (Move or Rename)
-
-* **Description:** Moves a file/folder to a new location, or renames it if kept in the same location.
-* **Syntax:** `mv [source] [destination]`
-* **Example:** `mv rules.txt about_the_game.txt` *(Renaming)*
-
-### 13. `cp` (Copy)
-
-* **Description:** Makes a duplicate copy of a file at a designated destination.
-* **Syntax:** `cp [source_file] [new_file]`
-* **Example:** `cp rules.txt backup_rules.txt`
-
----
-
-## ⚡ Power Tools (Searching & Modifying)
-
-### 14. `grep` (Global Regular Expression Print)
-
-* **Description:** Searches for specific text patterns inside files and prints out the entire line matching that pattern.
-* **Syntax:** `grep '[pattern]' [file(s)]`
-* **Example:** `grep 'CEO' team_members.txt`
-
-### 15. `grep -n` (Search with Line Numbers)
-
-* **Description:** Displays matching lines along with the exact line numbers where they appear in the file.
-* **Syntax:** `grep -n '[pattern]' [file(s)]`
-* **Example:** `grep -n ',' team*`
-
-### 16. `grep -i` (Case-Insensitive Search)
-
-* **Description:** Searches for a text pattern while ignoring uppercase/lowercase differences.
-* **Syntax:** `grep -i '[pattern]' [file(s)]`
-* **Example:** `grep -i 'ceo' team_members.txt`
-
-### 17. `grep -r` (Recursive Search)
-
-* **Description:** Searches for a text pattern in every single file inside the current folder and all of its subfolders.
-* **Syntax:** `grep -r '[pattern]' [directory]`
-* **Example:** `grep -r ',' .` *(The `.` means current directory)*
-
-### 18. `wc` (Word Count)
-
-* **Description:** Counts lines, words, and characters in a file (using `-l` counts just lines).
-* **Syntax:** `wc [options] [file]`
-* **Example:** `wc -l capitals.txt`
-
-### 19. `sort` (Sort Lines)
-
-* **Description:** Sorts the lines of text in a file alphabetically or numerically.
-* **Syntax:** `sort [file]`
-* **Example:** `sort countries.txt`
+23. | (The Pipe Character)
+Description: Connects two commands together by taking the output of the first command and sending it directly as the input to the second command.
+Syntax: [command_1] | [command_2]
+Example: sort team_members.txt | uniq (Sorts the file alphabetically first, then passes that sorted list to uniq to remove duplicates)
+24. uniq (Unique - Used with Pipe)
+Description: Removes duplicate lines from a file. Note: It only removes duplicate lines that are right next to each other (adjacent), which is why it is almost always paired with sort using a pipe.
+Syntax: sort [filename] | uniq
+Example: sort team_members.txt | uniq > sorted_team.txt (Sorts the team, removes duplicates, and saves the clean list to a new file)
