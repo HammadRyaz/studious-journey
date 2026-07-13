@@ -9,13 +9,13 @@ export default function promises() {
             }
         })
     }
-//  promise.all means if one fail so all fail
+    //  promise.all means if one fail so all fail
 
     try {
         const promise1 = createPromise()
         const promise2 = createPromise()
         const promise3 = createPromise()
-        const result = await Promise.all([promise1, promise2, promise3])
+        const result = await Promise.allSettled([promise1, promise2, promise3])
         console.log(result)
     } catch (err) {
         console.log(err)
