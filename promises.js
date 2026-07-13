@@ -9,6 +9,7 @@ export default function promises() {
             }
         })
     }
+//  promise.all means if one fail so all fail
 
     try {
         const promise1 = createPromise()
