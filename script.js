@@ -1,12 +1,31 @@
-import http from 'node:http'
-const PORT = 8000
-console.log("Query Parameter")
+import http from "node:http";
+import { getDataFromDB } from "./database/db.js";
+import sendResponseContent from "./utils/sendResponseContent.js";
+import sendParmsData from "./utils/sendParmsData.js";
+const PORT = 8000;
 
-const server = http.createServer((req, res) => {
-    // const urlObj = new URL(req.url, `http://${req.headers.host}`)
-    const urlObj = new URL('/api?name=tom&country=fr', 'http://localhost:8000')
-    const qeryObj = Object.fromEntries(urlObj.searchParams)
-    console.log(urlObj.pathname)
-})
-
-server.listen(PORT, console.log('Server listning on port 8000 '))
+const server = http.createServer(async (req, res) => {
+    const destinations = await getDataFromDB();
+    if (req.url === "/api" && req.method === "GET") {
+        sendResponseContent(res, 200, destinations);
+    } else if (req.url.startsWith("/api/continent")) {
+        const parts = req.url.split("/");
+        const parms = parts[3];
+        const data = sendParmsData(destinations, 'continent', parms)
+        sendResponseContent(res, 200, data);
+    }
+    else if (req.url.startsWith("/api/country")) {
+        const parts = req.url.split("/");
+        const parms = parts[3];
+        const data = sendParmsData(destinations, 'country', parms)
+        sendResponseContent(res, 200, data);
+    }
+    else {
+        sendResponseContent(res, 404, {
+            error: "not found",
+            message: "The requested route does not exist",
+        });
+    }
+});
+// server.listen(PORT, () => console.log(`Serve listening on port ${PORT}`))
+server.listen(PORT);
