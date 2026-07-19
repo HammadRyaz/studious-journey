@@ -3,7 +3,15 @@ import http from "node:http"
 import { getDataFromDB } from "./database/db.js"
 const PORT = 8000;
 
+  /*
+  Challenge:
+  1. Check if the url starts with “/api/continent”.
+    (Is there a JS method that allows you to check what a string starts with?)
 
+  2. If it does, serve only items from that continent.
+    (How can you get to what comes after the final slash?)
+    (What method can you use to filter data?)
+  */
 const server = http.createServer(async (req, res) => {
     const destinations = await getDataFromDB()
     if (req.url === "/api" && req.method === "GET") {
