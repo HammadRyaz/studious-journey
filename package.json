@@ -1,0 +1,16 @@
+{
+  "name": "documentry-the-journey",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git@main:HammadRyaz/documentry-the-journey.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "script.js",
+  "scripts": {
+    "start" : "node script.js"
+  }
+}
