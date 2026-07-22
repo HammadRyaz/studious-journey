@@ -2,9 +2,8 @@ import http from 'node:http'
 
 const PORT = 8000;
 const server = http.createServer((req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "*")
-    res.setHeader("Access-Control-Allow-Method", "GET")
-    res.writeHead("200", { "Content-Type": "text/html" })
+
+    res.writeHead("200", { "Content-Type": "text/html" }, { "access-control-allow-origin": "*" }, { "access-control-allow-method": "GET" })
     res.end("<h1> Server is Running , haha</h1>")
 
 })
