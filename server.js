@@ -1,11 +1,13 @@
 import http from 'node:http'
+// Scrim : Route and Path
 
 const PORT = 8000;
+const dir  = import.meta.dirname
+console.log(dir)
 const server = http.createServer((req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "*")
-    res.setHeader("Access-Control-Allow-Method", "GET")
-    res.writeHead("200", { "Content-Type": "text/html" },{ "access-control-allow-method": "POST" })
-    res.end("<h1> Server is Running , haha</h1>")
+    
+    res.writeHead("200", { "Content-Type": "text/html" }, { "access-control-allow-method": "POST" })
+    res.end()
 
 })
 
