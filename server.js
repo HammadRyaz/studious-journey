@@ -1,6 +1,7 @@
 import http from 'node:http'
 import path from 'node:path'
-// Scrim : Aside Path Module
+import fs from 'node:fs'
+// Scrim : Aside FS Module
 console.clear()
 const PORT = 8000;
 
@@ -17,9 +18,11 @@ const relativePath = path.join("public", "index.html")
 
 
 const server = http.createServer((req, res) => {
+    const resoursePath = path.join(__dirname, "public", "index.html")
+    const content = fs.readFileSync(resoursePath, 'utf8')
 
     res.writeHead("200", { "Content-Type": "text/html" }, { "access-control-allow-method": "POST" })
-    res.end()
+    res.end(content)
 
 })
 
