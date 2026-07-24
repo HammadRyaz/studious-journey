@@ -24,11 +24,8 @@ const server = http.createServer(async (req, res) => {
         console.log(err)
         res.statusCode = 404;
         res.setHeader('Content-Type', 'text/html')
-        res.end(`
-            <center>
-            <h1> Page Not Found : 404 </h1>
-            </center>
-            `);
+        const content = await fs.readFile(path.join('public', '404.html'));
+        res.end(content);
     }
 });
 
