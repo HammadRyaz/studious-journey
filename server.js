@@ -21,11 +21,13 @@ const server = http.createServer(async (req, res) => {
         res.setHeader("Content-Type", getContentType(ext));
         res.end(content)
     } catch (err) {
-        console.log(err)
-        res.statusCode = 404;
-        res.setHeader('Content-Type', 'text/html')
-        const content = await fs.readFile(path.join('public', '404.html'));
-        res.end(content);
+        if (err.code === 'ENOENT') {
+            const content = await fs.readFile(path.join(publicDir, '404.html'))
+            sendResponse(res, 404, 'text/html', content)
+        }
+        else {
+            sendResponse(res, 500, 'text/html', `<html><h1>Server Error: ${err.code}</h1></html>`)
+        }
     }
 });
 
