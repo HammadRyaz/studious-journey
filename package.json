@@ -1,19 +1,12 @@
 {
-  "name": "documentry-the-journey",
+  "name": "from-the-other-side",
   "version": "1.0.0",
-  "description": "",
-  "repository": {
-    "type": "git",
-    "url": "git@main:HammadRyaz/documentry-the-journey.git"
-  },
-  "license": "ISC",
-  "author": "",
+  "description": "A platform for sharing ghostly encounters",
+  "main": "server.js",
   "type": "module",
-  "main": "script.js",
   "scripts": {
-    "start": "node script.js"
+    "start": "node server.js"
   },
-  "dependencies": {
-    "nodemon": "^3.1.14"
-  }
+  "author": "Tom Chant",
+  "license": "ISC"
 }
