@@ -5,7 +5,7 @@ function Commit(id, parent, message) {
     this.message = message
 }
 // lets make a new class for a branch. A branch, as we saw, has a name and a reference to some commit
-function Branch(name,commit){
+function Branch(name, commit) {
     this.name = name;
     this.commit = commit
 }
@@ -15,6 +15,10 @@ function Git(name) {
     this.name = name;
     this.lastCommitId = -1
     this.HEAD = null;
+    this.branches = []
+    var master = new Branch('master', null) // null is passed as we don't have any commit yet.
+    this.branches.push(master)
+    this.HEAD = master  // reference the current branch (master when repo is created)
 }
 
 // Lets add the ability on our Git class to create a commit or commit (verb)
