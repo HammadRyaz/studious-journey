@@ -24,11 +24,11 @@ function Git(name) {
 // Lets add the ability on our Git class to create a commit or commit (verb)
 Git.prototype.commit = function (message) {
     var commit = new Commit(++this.lastCommitId, message)
-    this.HEAD = commit
+    this.HEAD.commit = commit
     return commit;
 }
 Git.prototype.log = function () {
-    var commit = this.HEAD
+    var commit = this.HEAD.commit
     var history = []
     while (commit) {
         history.push(commit)
