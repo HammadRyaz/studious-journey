@@ -4,6 +4,11 @@ function Commit(id, parent, message) {
     this.parent = parent
     this.message = message
 }
+// lets make a new class for a branch. A branch, as we saw, has a name and a reference to some commit
+function Branch(name,commit){
+    this.name = name;
+    this.commit = commit
+}
 
 // simple class called Git which will basically represent a repo.
 function Git(name) {
