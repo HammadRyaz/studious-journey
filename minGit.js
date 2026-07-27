@@ -52,3 +52,18 @@ Git.prototype.checkout = function (branchName) {
     this.HEAD = newBranch;
     return this;
 }
+
+// ----------TEST------------------------
+
+var repo = new Git("myrepo");
+
+repo.commit("first commit");
+repo.commit("second commit");
+console.log(repo.log()); // 2 commits, master
+
+repo.checkout("feature");
+repo.commit("feature commit");
+console.log(repo.log()); // 3 commits, feature branch
+
+repo.checkout("master");
+console.log(repo.log()); // wapas 2 commits — master untouched
