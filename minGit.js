@@ -9,3 +9,9 @@ function Commit(id, message) {
     this.id = id
     this.message = message
 }
+
+// Lets add the ability on our Git class to create a commit or commit (verb)
+Git.prototype.commit = function (message) {
+    var commit = new Commit()
+    return commit;
+}
