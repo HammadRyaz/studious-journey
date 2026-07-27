@@ -47,7 +47,7 @@ Git.prototype.checkout = function (branchName) {
         }
     }
 
-    var newBranch = new Branch(branchName, this.HEAD.commit);
+    var newBranch = new Branch(branchName, null)
     this.branches.push(newBranch)
     this.HEAD = newBranch;
     return this;
