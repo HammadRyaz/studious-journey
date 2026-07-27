@@ -23,7 +23,7 @@ function Git(name) {
 
 // Lets add the ability on our Git class to create a commit or commit (verb)
 Git.prototype.commit = function (message) {
-    var commit = new Commit(++this.lastCommitId, message)
+    var commit = new Commit(++this.lastCommitId, this.HEAD.commit, message)
     this.HEAD.commit = commit
     return commit;
 }
@@ -35,4 +35,20 @@ Git.prototype.log = function () {
         commit = commit.parent
     }
     return history
+}
+Git.prototype.checkout = function (branchName) {
+    // Loop through all branches and see if we have a branch
+    // called `branchName`.
+    for (let i = this.branches.length; i--;) {
+        if (this.branches[i].name === branchName) {
+            console.log("Swithed to exsisting branch " + branchName)
+            this.HEAD = this.branches[i];
+            return this;
+        }
+    }
+
+    var newBranch = new Branch(branchName, this.HEAD.commit);
+    this.branches.push(newBranch)
+    this.HEAD = newBranch;
+    return this;
 }
