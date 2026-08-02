@@ -52,6 +52,11 @@ dist-ssr
 *.sln
 *.sw?
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> origin/frontendMath
 =======
 >>>>>>> remotes/origin/react
+=======
+
+copy.app.jsx
+>>>>>>> remotes/origin/reactjs/AssemblyEndgame
