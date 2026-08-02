@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -60,3 +61,6 @@ dist-ssr
 
 copy.app.jsx
 >>>>>>> remotes/origin/reactjs/AssemblyEndgame
+=======
+node_modules/
+>>>>>>> remotes/origin/reactjs/optimization
